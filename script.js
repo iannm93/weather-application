@@ -1,11 +1,32 @@
+
 // check local storage to see if the user has searched cities previously (last city searched should be displayed like you just searched it)
 // when the user clicks on the search button
+var searchHistory = JSON.parse(localStorage.getItem("search-history"));
+if (searchHistory === null) {
+  searchHistory = []
+}
+renderSearchHistory();
+function renderSearchHistory() {
+  $("#search-history").empty();
+  for (var i = 0; i < searchHistory.length; i++) {
+    var button = $("<button type='button' class='btn btn-primary'>").text(
+      searchHistory[i]
+    );
+    $("#search-history").append(button);
+  }
+}
 $("#searchBar").on("click", function(event){
     event.preventDefault();
     var weather = $("#searchVal").val().trim()
-    $("#cityName").empty()
-    $("#currentWeather").empty()
-    $("#windSpeed").empty()
+    searchHistory.unshift(weather);
+    while (searchHistory.length > 10){
+        searchHistory.pop();
+    }
+    localStorage.setItem("search-history", JSON.stringify(searchHistory));
+    renderSearchHistory();
+    $("#cityName").empty();
+    $("#currentWeather").empty();
+    $("#windSpeed").empty();
     
  
     
@@ -53,17 +74,8 @@ $("#searchBar").on("click", function(event){
             console.log(review)
             
         })
-        
-        
-        
-        
-        
-        
-        
-        
-        
-    });
-    
+ 
+    })
     
     
     })
