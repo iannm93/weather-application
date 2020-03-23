@@ -18,45 +18,57 @@ $("#searchBar").on("click", function(event){
       method: "GET"
     }).then(function(response) {
 
+        console.log(response);
      
-      console.log(response);
-      // create div to contain all elements 
-      
-      // based on the city the user entered 
-      // store the city name as a variable
-      var cityName = response.name
-      // add the city name to an h1 tag
-      $("<h1>").text(cityName)
-      // append the city name to the div
-      
-      $("#cityName").text("City: ").append(cityName)
-      // store the weather as a variable
-      var currentWeather = (response.main.temp) - 273.15 * (9/5) + 32 
-      // add the weather to an h1 tag
-      $("<h1>").text(currentWeather)
-      // append the weather to the div
-      $("#currentWeather").text("Temperature: ").append(currentWeather)
-      // store the wind speed in a vari spped to a h6able
-     var windSpeed = response.wind.speed
-     // add the wind tag
-     $("<h1>").text(windSpeed)
-     // sappend the wind spped to the div
-     $("#windSpeed").text("Wind Speed: ").append(windSpeed)
-     // store the UV index as a variable
-
-   
-
-    
-
+        // create div to contain all elements 
         
-
-
+        // based on the city the user entered 
+        // store the city name as a variable
+        var cityName = response.name
+        // add the city name to an h1 tag
+        $("<h1>").text(cityName)
+        // append the city name to the div
+        
+        $("#cityName").text("City: ").append(cityName)
+        // store the weather as a variable
+        var currentWeather = (response.main.temp) - 273.15 * (9/5) + 32 
+        // add the weather to an h1 tag
+        $("<h1>").text(currentWeather)
+        // append the weather to the div
+        $("#currentWeather").text("Temperature: ").append(currentWeather)
+        // store the wind speed in a vari spped to a h6able
+        var windSpeed = response.wind.speed
+        // add the wind tag
+        $("<h1>").text(windSpeed)
+        // sappend the wind spped to the div
+        $("#windSpeed").text("Wind Speed: ").append(windSpeed)
+        // store the UV index as a variable
+        var lon = response.coord.lon
+        var lat = response.coord.lat
+        console.log(lat)
+        $.ajax({
+            url: "https://api.openweathermap.org/v3/uvi/" + lat + lon + "/current.json?appid=" + APIkey,
+            method: "GET"
+        }).then(function(review){
+            console.log(review)
+            
+        })
+        
+        
+        
+        
+        
+        
+        
+        
+        
     });
     
+    
+    
+    })
+    
 
-
-
-})
 // add the uv index to a h6 tag
 // append the UV index to the div
             // if the UV index >6, set class to make color red
