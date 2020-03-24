@@ -6,30 +6,42 @@
     <title>Weather Application</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
 </head>
+
+
 <body>
+  <div class="jumbotron jumbotron-fluid">
+    <div class="container">
+      <h1 class="display-4">Weather Application!</h1>
+      <p class="lead">Type in a city below to fetch the weather!</p>
+    </div>
+    
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
-      
-          <form  id ="searchValue" class="form-inline my-2 my-lg-0">
-            <input  id = "searchVal" class="form-control mr-sm-2" type="search" placeholder="Type a City Here!" aria-label="Search">
-            <button id ="searchBar" class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+      <form  id ="searchValue" class="form-inline my-2 my-lg-0">
+        <input  id = "searchVal" class="form-control mr-sm-2" type="search" placeholder="Type a City Here!" aria-label="Search">
+        <button id ="searchBar" class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
           </form>
         </div>
       </nav>
-      <div id= "cityName"></div>
-      <div id="currentWeather"> </div>
-      <div id="windSpeed"> </div>
-      <div class="container mt-5">
-        <div class="row">
-          <div class="col">
-            <h2>Search History</h2>
-            <div id="search-history"></div>
-          </div>
-        </div>
+      <div class="card" style="width: 18rem;">
+        <ul class="list-group list-group-flush">
+          <li  id = "cityName" class="list-group-item"> </li>
+          <li id = "currentWeather" class="list-group-item"></li>
+          <li  id = "windSpeed" class="list-group-item"></li> 
+        </ul>
       </div>
+      
+      <h2>Search History: </h2>
+      <div id="search-history"></div>
+    </div>
+  </div>
+</div>
+</div>
     <script
     src="https://code.jquery.com/jquery-3.4.1.min.js"
     integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
     crossorigin="anonymous"></script>
     <script src="script.js"></script>
 </body>
+
+
 </html>

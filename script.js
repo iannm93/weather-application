@@ -9,7 +9,7 @@ renderSearchHistory();
 function renderSearchHistory() {
   $("#search-history").empty();
   for (var i = 0; i < searchHistory.length; i++) {
-    var button = $("<button type='button' class='btn btn-primary'>").text(
+    var button = $("<button type ='button' class = 'btn btn-secondary'>").text(
       searchHistory[i]
     );
     $("#search-history").append(button);
@@ -52,7 +52,7 @@ $("#searchBar").on("click", function(event){
         
         $("#cityName").text("City: ").append(cityName)
         // store the weather as a variable
-        var currentWeather = (response.main.temp) - 273.15 * (9/5) + 32 
+        var currentWeather = (response.main.temp -273.15)*1.8+32; + " degrees Farenheit"
         // add the weather to an h1 tag
         $("<h1>").text(currentWeather)
         // append the weather to the div
