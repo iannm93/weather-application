@@ -1,7 +1,7 @@
 ## weather application 
 > Weather Application!
 
-## Table of c#ontents
+## Table of contents
 * [General info](#general-info)
 * [Screenshots](#screenshots)
 * [Setup](#setup)
